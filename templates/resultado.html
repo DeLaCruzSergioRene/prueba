@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Resultados del Cálculo{% endblock %}
+{% block content %}
+<h1 class="mb-4 text-center">Resultados del Cálculo</h1>
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Tasa Metabólica Basal (TMB)</h4>
+    <p class="fs-5">{{ tmb | round(2) }} kcal/día</p>
+    <h4 class="alert-heading">Gasto Energético Total (GET)</h4>
+    <p class="fs-5 mb-0">{{ get | round(2) }} kcal/día</p>
+</div>
+<div class="d-grid">
+    <a href="{{ url_for('formulario') }}" class="btn btn-secondary">
+    Volver a calcular
+    </a>
+</div>
+{% endblock %}

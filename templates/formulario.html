@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Calculadora TMB y GET{% endblock %}
+{% block content %}
+<h1 class="mb-4 text-center">Calculadora de Gasto Energético</h1>
+<form action="{{ url_for('calcular') }}" method="POST">
+    <div class="mb-3">
+    <label for="peso" class="form-label">Peso (kg)</label>
+    <input type="number" step="0.1" class="form-control" id="peso" name="peso" required>
+    </div>
+
+    <div class="mb-3">
+    <label for="altura" class="form-label">Altura (cm)</label>
+    <input type="number" step="0.1" class="form-control" id="altura" name="altura" required>
+    </div>
+
+    <div class="mb-3">
+    <label for="edad" class="form-label">Edad (años)</label>
+    <input type="number" class="form-control" id="edad" name="edad" required>
+    </div>
+
+    <div class="mb-3">
+    <label class="form-label">Género</label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="genero" id="generoHombre" value="hombre" required>
+        <label class="form-check-label" for="generoHombre">Hombre</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="genero" id="generoMujer" value="mujer">
+        <label class="form-check-label" for="generoMujer">Mujer</label>
+    </div>
+    </div>
+
+    <div class="mb-3">
+    <label for="nivel_actividad" class="form-label">Nivel de Actividad</label>
+    <select class="form-select" id="nivel_actividad" name="nivel_actividad" required>
+        <option value="" selected disabled>Seleccione su nivel...</option>
+        <option value="sedentario">Sedentario (TMB x 1.2)</option>
+        <option value="ligero">Actividad Ligera (TMB x 1.375)</option>
+        <option value="moderado">Actividad Moderada (TMB x 1.55)</option>
+        <option value="alto">Actividad Alta (TMB x 1.725)</option>
+    </select>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 py-2">Calcular</button>
+</form>
+{% endblock %}
